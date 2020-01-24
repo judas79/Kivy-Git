@@ -1,0 +1,327 @@
+# ---------- calculator.kv  -----------
+
+# Custom button as not to have to type the same thing out multiple times
+
+<CustomButton@Button>:
+
+    font_size: 32
+
+# class functions
+# Display points to the entry widget
+
+<CalcGridLayout>:
+
+    # Define id so I can refer to the def CalcGridLayout
+
+    id: calculator
+
+    # an entry place to enter text, named entry
+
+    display: entry
+
+    # 4 rows of calculator buttons 1 row entry
+
+    rows: 5
+    padding: 10
+    spacing: 10
+
+    # multiple BoxLayouts where input buttons are displayed,
+    # will go within the grid layout
+
+    BoxLayout:
+
+        # create the entry box
+
+        TextInput:
+
+            # refer to text input entry box buy making an id for it
+
+            id: entry
+            font_size: 32
+            multiline: False
+
+    # When buttons are pressed update the entry
+
+    BoxLayout:
+
+        spacing: 10
+
+        # custom button, created above.
+
+        CustomButton:
+
+            background_color: (0.3, 0.3, 0.3, 1.0)
+
+            text: 'AC'
+
+            # set minimum size for the width of the button
+            size_hint_x: 1.5
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text = ''
+
+        CustomButton:
+
+            text: '0'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+            # call function 0, to play sound when button is clicked
+            on_press: app.play_sound0()
+
+        CustomButton:
+
+            # button background white;   default is grey
+            background_normal: ""
+
+            text: '1'
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 1play sound when button is clicked
+            on_press: app.play_sound1()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '+'
+
+            # call function 1play sound when button is clicked
+            on_press: app.play_sound10(10)
+
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+            # set minimum size for the width of the button
+            size_hint_x: 1.4
+            size_hint_y: .6
+
+            # button width and length
+            #size: 50, 155
+            #size_hint: None, None
+
+        CustomButton:
+
+            text: '2'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 2 play sound when button is clicked
+            on_press: app.play_sound2()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '3'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 3 play sound when button is clicked
+            on_press: app.play_sound3()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '4'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 4 play sound when button is clicked
+            on_press: app.play_sound4()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '-'
+
+            # set minimum size for the width of the button
+            size_hint_x: 1.4
+            size_hint_y: .6
+
+            #button width and length
+            #size: 50, 155
+            #size_hint: None, None
+
+            # call function 1play sound when button is clicked
+            on_press: app.play_sound11(11)
+
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '5'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 5 play sound when button is clicked
+            on_press: app.play_sound5()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '6'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 6 play sound when button is clicked
+            on_press: app.play_sound6()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '*'
+
+            # set minimum size for the width of the button
+            size_hint_x: 1.4
+            size_hint_y: .6
+
+            # button width and length
+            #size: 50, 155
+            #size_hint: None, None
+
+            # call function 1play sound when button is clicked
+            on_press: app.play_sound12(12)
+
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '7'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 7, play sound when button is clicked
+            on_press: app.play_sound7()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '8'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 8 play sound when button is clicked
+            on_press: app.play_sound8()
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '9'
+
+            # button background white, default is grey
+            background_normal: ""
+
+            # text color black
+            color: 0.0, 0.0, 0.0, 1.0
+
+            # call function 9 play sound when button is clicked
+            on_press: app.play_sound9(2)
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '/'
+
+            # set minimum size for the width of the button
+            size_hint_x: 1.4
+            size_hint_y: .6
+
+            # button width and length
+            #size: 50, 155
+            #size_hint: None, None
+
+            # call function 1play sound when button is clicked
+            on_press: app.play_sound13(13)
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            background_color: (0.3, 0.3, 0.3, 1.0)
+
+            text: '='
+
+            # set minimum size for the width of the button
+            size_hint_x: 2
+
+            # call function 1play sound when button is clicked
+            on_press: app.play_sound14(14)
+
+            # event; call calculate when this button is pressed; id is entry and object calculator
+            # CalcGridLayout is tied back to out main program that will be passed calculate entry text
+            on_press: calculator.calculate(entry.text)
+
+
+
+
+
+
+
+
+
+
+
