@@ -1,0 +1,79 @@
+# ---------- CUSTOMWIDGET.KV ----------
+
+# You can set default attributes that are shared by
+# other widgets
+
+# color is RGBA as a percent of 255 and alpha
+# Color is the text color
+# background_normal and background_down are either
+# white with '' or can be set to a png
+# background_color tints whatever the background is
+
+# this is what we will be modeling after, as a
+# for making our own custom button
+
+<CustomButton@Button>:
+
+    # define a bunch of different things
+
+    font_size: 32
+
+    # color, meaning text color, represented in a percentage between 0 and 1,
+    # of 255 RGB, and alpha
+
+    color: 0,0,0, 1
+
+    # button size in pixels width by heigth
+
+    size: 150, 50
+
+    # color of button while not be pressed, '' means white or use a color .png file
+
+    background_normal: ''
+
+    # button color while pressed
+
+    backround_down: 'backgroundButtonDownBlue.png'
+
+    background_color: .88, .88, .88, 1
+
+    # Define custom widget area *** EXACT POSITIONING ***
+
+<CustomWidget>:
+
+    # Use our defined attributes defined above
+
+    CustomButton:
+
+        text: 'Random'
+
+        # position button with exact positioning meanin x and y coordinates
+        # with kivy 0,0; x y is at bottom left corner, .x, 200 left, y top
+
+        pos: root.x, 200
+
+    # Use our defined attributes defined above
+
+    CustomButton:
+
+        text: 'Buttons'
+
+        # position button with exact positioning meanin x and y coordinates
+        # with kivy 0,0; x y is at bottom left corner, .x, 200 left, y top
+
+        pos: 200, root.y
+
+    # Use our defined attributes defined above
+
+    CustomButton:
+
+        text: 'Random 2'
+
+        # position button with exact positioning meanin x and y coordinates
+        # with kivy 0,0; x y is at bottom left corner, .x, 200 left, y top
+
+        pos: 200, 400
+
+
+
+
