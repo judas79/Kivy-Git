@@ -1,4 +1,4 @@
-# ---------- KIVYTUT2.PY ----------
+# ---------- KIVYTUT2.PY -----------
 
 import kivy
 
