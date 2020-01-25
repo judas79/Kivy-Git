@@ -1,0 +1,206 @@
+# ---------- calculator.kv  ----------
+
+# Custom button as not to have to type the same thing out multiple times
+
+<CustomButton@Button>:
+
+    font_size: 32
+
+# class functions
+# Display points to the entry widget
+
+<CalcGridLayout>:
+
+    # Define id so I can refer to the def CalcGridLayout
+
+    id: calculator
+
+    # an entry place to enter text, named entry
+
+    display: entry
+
+    # 4 rows of calculator buttons 1 row entry
+
+    rows: 5
+    padding: 10
+    spacing: 10
+
+    # multiple BoxLayouts where input buttons are displayed,
+    # will go within the grid layout
+
+    BoxLayout:
+
+        # create the entry box
+
+        TextInput:
+
+            # refer to text input entry box buy making an id for it
+
+            id: entry
+            font_size: 32
+            multiline: False
+
+    # When buttons are pressed update the entry
+
+    BoxLayout:
+
+        spacing: 10
+
+        # custom button, created above.
+
+        CustomButton:
+
+            text: '7'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '8'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '9'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '+'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+    BoxLayout:
+
+        spacing: 10
+
+        CustomButton:
+
+            text: '4'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '5'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '6'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '-'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+    BoxLayout:
+
+        spacing: 10
+
+        CustomButton:
+
+            text: '1'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '2'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+        CustomButton:
+
+            text: '3'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+        CustomButton:
+
+            text: '*'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+    BoxLayout:
+
+        spacing: 10
+
+        CustomButton:
+
+            text: 'AC'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text = ''
+
+        CustomButton:
+
+            text: '0'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+
+        CustomButton:
+
+            text: '='
+
+            # event; call calculate when this button is pressed; id is entry and object calculator
+            # CalcGridLayout is tied back to out main program that will be passed calculate entry text
+
+            on_press: calculator.calculate(entry.text)
+
+
+        CustomButton:
+
+            text: '/'
+
+            # event; change (add to whatever is there) the value in the text input when this button is pressed; id is entry
+
+            on_press: entry.text += self.text
+
+
+
+
+
+
+
+
