@@ -1,0 +1,237 @@
+#: import CheckBox kivy.uix.checkbox
+
+# Create a custom label taken from the Label widget
+<CustomLabel@Label>
+    color: 0, 0, 0, 1
+
+# Create a custom popup widget as defined (named) in the main .py page
+<CustomPopup>
+    size_hint: .5, .5
+
+    # auto_dismiss is set to False because there will be a button to close
+    # the popup inside the popup, using on_press: root.dismiss()
+    auto_dismiss: False
+    title: 'Popup'
+
+    Button:
+        text: 'Close'
+        on_press: root.dismiss()
+
+# access the root from 'class SampleBoxLayout(BoxLayout)' on the main .py page,
+# as to have use of all its methods
+SampleBoxLayout:
+
+<SampleBoxLayout>:
+
+    # the checkbox will need an orientation
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    # create another box layout within this box layout
+    # that will hold all the widgets, together
+    BoxLayout:
+        orientation: 'horizontal'
+
+        # organize widget placement in one little box
+        size_hint_x: .22
+
+        # black custom label created above
+        CustomLabel:
+            text: 'Are you 18 or over'
+
+            font_size:14
+
+            # take up .80 of the available space that's left
+            size_hint_x: .80
+
+        # ********* create a single checkbox widget in here *********
+
+        CheckBox:
+
+            # the color of the checkbox
+            color: 1,0,0,1
+
+
+            # trigger an event to call def checkbox_18_clicked from the main .py page
+            # when active call root and def checkbox_18_clicked, pass; self,'self.active'
+            # and also pass in the value which is 'active'
+            on_active: root.checkbox_18_clicked(self, self.active)
+
+            size_hint_x: .55
+
+    # ***************** radio buttons section ************
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        # organize widget placement in one little box
+        size_hint_x: .55
+
+        # insert our customlabel here
+        CustomLabel:
+            text: 'Favorite Color'
+            size_hint_x: .265
+
+        # even though it is going to be a radio button, we will call it CheckBox
+        # when they are in a 'group', they serve as radio buttons
+        CheckBox:
+            group: 'fav_color'
+
+            # which object property to start with, accessing it from here
+            value: root.blue
+            size_hint_x: .05
+
+        CustomLabel:
+            text: 'Blue'
+            size_hint_x: .15
+
+        CheckBox:
+            group: 'fav_color'
+
+            # which object property to start with, accessing it from here
+            value: root.red
+            size_hint_x: .05
+
+        CustomLabel:
+            text: 'Red'
+            size_hint_x: .15
+
+        CheckBox:
+            group: 'fav_color'
+
+            # which object property to start with, accessing it from here
+            value: root.green
+            size_hint_x: .05
+
+        CustomLabel:
+            text: 'Green'
+            size_hint_x: .15
+
+    # ***************** a Switch, and a Slider Handler ***************
+
+    BoxLayout:
+        orientation: 'horizontal'
+        height: 30
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            # organize widget placement in one little box
+            size_hint_x: .25
+
+            # our custom label; text is determined by our slider_id value
+            CustomLabel:
+                text: str(slider_id.value)
+
+            # give the slider a custom id value, by what value the slider is located
+            Slider:
+                id: slider_id
+
+                # define minimum and maximum and starting values for the slider,
+                # and the step of the slider; 1 keeps it from having fractions in the values
+                min: -100
+                max:100
+                value: 0
+                step: 1
+
+        # create the Switch; with a custom label for it
+        BoxLayout:
+            orientation: 'horizontal'
+
+            # organize widget placement in one little box
+            size_hint_x: .25
+
+            # custom label starts the switch in the on/off value
+            CustomLabel:
+                text: 'On / Off'
+
+            # Give the switch a custom id weather its active or not active
+            Switch:
+                id: switch_id
+
+                # trigger an event to call def switch_on(self, instance, value ) from the main .py page
+                # when active call root and def switch_on, pass; self,'self.active'
+                # and also pass in the value which is 'active'
+                on_active: root.switch_on(self, self.active)
+
+    # ************* display popup *****************
+
+    # create the Popup
+    BoxLayout:
+        orientation: 'horizontal'
+
+        # organize widget height
+        height: 30
+
+        # box within a box
+        BoxLayout:
+            orientation: 'horizontal'
+
+            # organize widget placement in one little box
+            size_hint_x: .25
+
+            # create button to open_popup() function when clicked
+            Button:
+                text: 'Open Popup'
+                on_press: root.open_popup()
+
+        # ***************** the Spinner ****************
+
+        # create the box for the Spinner
+        BoxLayout:
+            orientation: 'horizontal'
+
+            # organize widget placement in one little box
+            size_hint_x: .25
+
+            # call spinner
+            Spinner:
+
+                # then First will show up, and then the additional values for spinner in an array
+                text: 'First'
+                values: ['First', 'Second', 'Third']
+
+                # and give spinner an id
+                id: spinner_id
+
+                # call on_text, to get text selected from the spinner and pass it back
+                # back to the function; the text that was selected from spinner
+                on_text: root.spinner_clicked(spinner_id.text)
+
+
+    # ---------- Displays TabbedPanel ----------
+
+    # All files to make the tabbed panel work are here in this section of the .kv file
+    BoxLayout:
+        orientation: 'horizontal'
+        height: 30
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_x: .25
+
+            # create the tabbed panel
+
+            TabbedPanel:
+
+                # nothing will be highlighted
+                do_default_tab: False
+
+                # every peice to information in the tabbed panel will go under the tabbed panel item
+                TabbedPanelItem:
+                    text: '1st Tab'
+                    Label:
+                        text: 'Content of First Panel'
+
+                # every peice to information in the tabbed panel will go under the tabbed panel item
+                TabbedPanelItem:
+                    text: '2nd Tab'
+                    Label:
+                        text: 'Content of Second Panel'
+
+                # every peice to information in the tabbed panel will go under the tabbed panel item
+                TabbedPanelItem:
+                    text: '3rd Tab'
+                    Label:
+                        text: 'Content of Third Panel'
