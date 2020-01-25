@@ -1,4 +1,4 @@
-# ---------- main.py  ----------
+# ---------- main.py  -----------
 
 # all the functions reside here
 
