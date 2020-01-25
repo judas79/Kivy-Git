@@ -1,0 +1,107 @@
+# ---------- studentdb.kv  ----------
+
+# Reference studentdb.py
+
+# to import something into a .kv file use # then a :
+
+#: import main studentdb
+
+# this will stand in between the list view and items inside the list
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+
+# for all the buttons that will be in the app so we can interact with them
+#: from kivy.uix.recycleview import RecycleView.ListItemButton
+
+# the interface, StudentDB being root, to interface with
+
+StudentDB:
+
+# ******* create box layout ********
+<Student>:
+
+    # with boxlayout's you need
+    orientation: 'vertical'
+
+    # reference the object preferences, on the main .py page
+    first_name_text_input: first_name
+    last_name_text_input: last_name
+    student_list: students_list_view
+
+    # padding spacing for all the widgets inside
+    padding: 10
+    spacing: 10
+
+    #******** the box layout, text inputs and labels *********
+
+    # this is to layout our text labels
+    BoxLayout:
+
+        # define the height using specific sizing
+        size_hint_y: None
+        height: '40dp'
+
+        Label:
+            text: 'First Name'
+
+        # tie Label and text to first_name, above, using id
+        TextInput:
+            id: first_name
+
+        Label:
+            text: 'Last Name'
+
+        # tie Label and text to last_name, above, using id
+        TextInput:
+            id: last_name
+
+
+    # this section is to layout our buttons and text
+    BoxLayout:
+
+        # define the height using specific sizing
+        size_hint_y: None
+        height: '40dp'
+
+        Button:
+            text: 'Submit'
+
+            # define size
+            size_hint_x: 15
+
+            # define the action when button is clicked: call submit.student()
+            # from the main python page
+            on_press: root.submit_student()
+
+        Button:
+            text: 'Delete'
+
+            # define size
+            size_hint_x: 15
+
+            # define the action when button is clicked: call delete.student()
+            # from the main .py page
+            on_press: root.delete_student()
+
+        Button:
+            text: 'Replace'
+
+            # define size
+            size_hint_x: 15
+
+            # define the action when button is clicked: call replace.student()
+            # from the main .py page
+            on_press: root.replace_student()
+
+
+    # ********** create list view *********
+
+    # Define starting data and point to the ListItemButton
+    # in the Python code
+    ListView:
+
+        # give the list view an id, name used above, so we can reference it within the code
+        id: student_list_view
+
+        # add data, or leave it blank [], and point at the class, StudentListButton
+        adapter:
+            ListAdapter(data=['Doug Smith'], cls=main.StudentListButton)
