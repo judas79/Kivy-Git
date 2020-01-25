@@ -1,0 +1,32 @@
+<BoxLayout>:
+
+    # Orientation defines whether widgets are stacked (vertical)
+    # or are placed side by side (horizontal)
+    # padding is the space between the widgets and the
+    # surrounding window
+
+    orientation: 'vertical'
+    spacing: 10
+    padding: 10
+
+    # size_hint defines the percentage of space taken on the
+    # x access and the percentage of space left over by the
+    # other widgets
+
+    Button:
+
+        text: '1 st'
+
+        # size_hint is determined by the percentage of space in window and
+        # what other widgets have taken up
+
+        size_hint: .7, .5
+
+    Button:
+
+        text: '2 nd'
+
+    Button:
+
+        text: '3 rd'
+
