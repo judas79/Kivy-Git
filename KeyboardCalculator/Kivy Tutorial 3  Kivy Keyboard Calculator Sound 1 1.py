@@ -158,12 +158,12 @@ class KeyboardCalculator1App(App):
             if sound.state == "play":
                 sound.stop()
             sound.volume = 0.5
-            sound.pitch = 2
+            #sound.pitch = 2
             sound.play()
 
             print("Sound found at %s" % sound.source)
             print("Sound is %.3f seconds" % sound.length)
-            print('text = ', str(octave))
+           # print('text = ', str(octave))
 
     # addition sign
     def play_sound10(self, octave=None):
@@ -173,12 +173,12 @@ class KeyboardCalculator1App(App):
             if sound.state == "play":
                 sound.stop()
             sound.volume = 0.5
-            sound.pitch = 2
+            #sound.pitch = 2
             sound.play()
 
             print("Sound found at %s" % sound.source)
             print("Sound is %.3f seconds" % sound.length)
-            print('text = ', str(octave))
+            #print('text = ', str(octave))
 
     # subtraction sign
     def play_sound11(self, octave=None):
@@ -188,12 +188,12 @@ class KeyboardCalculator1App(App):
             if sound.state == "play":
                 sound.stop()
             sound.volume = 0.5
-            sound.pitch = 2
+            #sound.pitch = 2
             sound.play()
 
             print("Sound found at %s" % sound.source)
             print("Sound is %.3f seconds" % sound.length)
-            print('text = ', str(octave))
+            #print('text = ', str(octave))
 
     # multiplication sign
     def play_sound12(self, octave=None):
@@ -203,12 +203,12 @@ class KeyboardCalculator1App(App):
             if sound.state == "play":
                 sound.stop()
             sound.volume = 0.5
-            sound.pitch = 2
+            #sound.pitch = 2
             sound.play()
 
             print("Sound found at %s" % sound.source)
             print("Sound is %.3f seconds" % sound.length)
-            print('text = ', str(octave))
+            #print('text = ', str(octave))
 
     # division sign
     def play_sound13(self, octave=None):
@@ -218,12 +218,12 @@ class KeyboardCalculator1App(App):
             if sound.state == "play":
                 sound.stop()
             sound.volume = 0.5
-            sound.pitch = 2
+            #sound.pitch = 2
             sound.play()
 
             print("Sound found at %s" % sound.source)
             print("Sound is %.3f seconds" % sound.length)
-            print('text = ', str(octave))
+            #print('text = ', str(octave))
 
     # equals sign
     def play_sound14(self, octave=None):
@@ -233,12 +233,12 @@ class KeyboardCalculator1App(App):
             if sound.state == "play":
                 sound.stop()
             sound.volume = 0.5
-            sound.pitch = 2
+            #sound.pitch = 2
             sound.play()
 
             print("Sound found at %s" % sound.source)
             print("Sound is %.3f seconds" % sound.length)
-            print('text = ', str(octave))
+            #print('text = ', str(octave))
 
 
 calcApp = KeyboardCalculator1App()
