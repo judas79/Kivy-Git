@@ -1,0 +1,85 @@
+# ---------- FLOATING.KV ----------
+
+# *** FLOATING, SIZE WISE, APP ***
+
+# size_hint defines the widget width (0-1) representing
+# a percentage of 100% and height of the window
+<CustomButton@Button>:
+
+    # define a bunch of different things
+
+    font_size: 32
+
+    # color, meaning text color, represented in a percentage between 0 and 1,
+    # of 255 RGB, and alpha
+
+    color: 0,0,0, 1
+
+    # button size in pixels width by heigth
+
+    size: 150, 50
+
+    # color of button while not be pressed, '' means white or use a color .png file
+
+    background_normal: ''
+
+    # button color while pressed
+
+    backround_down: 'backgroundButtonDownBlue.png'
+
+    background_color: .88, .88, .88, 1
+
+    # based on the window, a percentage of the width and height, defines the widgets dimensions
+
+    size_hint: .4, .3
+
+    # Defines the *** FLOATING LAYOUT ***
+
+<FloatLayout>:
+
+    # Use our defined attributes defined above
+
+    CustomButton:
+
+        text: 'Top Left'
+
+        # pos_hint represents the position using either x, y, left,
+        # right, top, bottom, center, center_x, or center_y
+
+        pos_hint: {'x': 0, 'top': 1}
+
+    CustomButton:
+
+        text: 'Bottom Right'
+
+        # pos_hint represents the position using either x, y, left,
+        # right, top, bottom, center, center_x, or center_y
+
+        pos_hint: {'right': 1, 'y': 0}
+
+    CustomButton:
+
+        text: 'Top Right'
+
+        # pos_hint represents the position using either x, y, left,
+        # right, top, bottom, center, center_x, or center_y
+
+        pos_hint: {'right': 1, 'top': 1}
+
+    CustomButton:
+
+        text: 'Bottom Left'
+
+        # pos_hint represents the position using either x, y, left,
+        # right, top, bottom, center, center_x, or center_y
+
+        pos_hint: {'left': 1, 'bottom': 0}
+
+    CustomButton:
+
+        text: 'Center'
+
+        # pos_hint represents the position using either x, y, left,
+        # right, top, bottom, center, center_x, or center_y
+
+        pos_hint: {'center_x': .5, 'center_y': .5}
